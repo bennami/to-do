@@ -1,11 +1,19 @@
 import React from "react";
+import "../todo.css"
 
-function Todo() {
+function Todo(props) {
+
+    const items = props.items;
+    const listItems = items.map( item => {
+        return <div className={'list'} key={item.key}>
+                <p>{item.text} <span><button onClick={()=> props.deleteItem(item.key)}>X</button></span></p>
+
+               </div>
+
+    });
     return(
-        <div className="todo-item">
-            <input type="checkbox" />
-            <p>Placeholder text here</p>
-
+        <div className="todo-items">
+        {listItems}
         </div>
     );
 

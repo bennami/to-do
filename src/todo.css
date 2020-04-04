@@ -1,0 +1,26 @@
+.list{
+    color: #fff;
+    width: 300px;
+    margin: 20px auto;
+    height: 50px;
+    background-color: #7dbf7b;
+    border-radius: 5px;
+    text-align: left;
+
+}
+
+.list p{
+
+    padding: 10px;
+    position: relative;
+    transition: ease-in-out;
+}
+
+.list p button{
+position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: medium;
+    height: 4vmax;
+    color: #333333;
+}

@@ -1,15 +1,15 @@
 body {
-  background-color: whitesmoke;
+  background-color: #b1f5af;
 }
 
 .todo-list {
-  background-color: white;
+  background-color: whitesmoke;
   margin: auto;
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #efefef;
+
   box-shadow:
     /* The top layer shadow */
           0 1px 1px rgba(0,0,0,0.15),
@@ -28,9 +28,11 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 30px 20px 0;
-  width: 70%;
-  border-bottom: 1px solid #cecece;
+  padding: 10px 10px ;
+  margin-top: 3vmax;
+  margin-bottom:  3vmax ;
+  width: 80%;
+  border: #333333 1px  solid;
   font-family: Roboto, sans-serif;
   font-weight: 100;
   font-size: 15px;
@@ -39,12 +41,38 @@ body {
 
 input[type=checkbox] {
   margin-right: 10px;
-  font-size: 30px;
+  font-size: 50px;
+
 }
 
 input[type=checkbox]:focus {
-  outline: 0;
+  outline: none;
 }
 
+.l-item{
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  padding:10px 10px 3px 10px;
+  cursor: text;
+}
 
+.form-container{
+  display: flex;
 
+}
+
+.addToDo{
+  background-color: rgb(255, 255, 255);
+  height: 50px;
+  border-radius: 5px;
+  border: 0;
+  padding: 0  20px;
+}
+button{
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+  background-color: #b1f5af;
+  font-size: xx-large;
+}
