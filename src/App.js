@@ -1,4 +1,4 @@
-import React  from 'react';
+import React ,{useState} from 'react';
 import './App.css';
 import Todo from "./components/Todo";
 
@@ -9,7 +9,7 @@ class App extends React.Component{
             items:[],
             currentItem:
                 {
-                    text: 'well',
+                    text: '',
                     key: ''
                 }
 
@@ -19,7 +19,11 @@ class App extends React.Component{
         this.addItem = this.addItem.bind(this);
         this.deleteItem = this.deleteItem.bind(this)
     }
-//const [ inputText,  setInputText]  = useState();
+//const [ items,  setItems  = useState([]);
+//const [ currentItem , setCurrentItem] = useState({
+// text:'',
+// key:''
+// })
 
     addItem(e){
         //this prevents page from refreshing
