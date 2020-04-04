@@ -14,7 +14,7 @@ class App extends React.Component{
                 }
 
         };
-        console.log(this.state.items);
+
         this.handleInput = this.handleInput.bind(this);
         this.addItem = this.addItem.bind(this);
         this.deleteItem = this.deleteItem.bind(this)
@@ -39,6 +39,7 @@ class App extends React.Component{
                 }
                 })
             }
+
         }
 
         deleteItem(key){
@@ -58,8 +59,6 @@ class App extends React.Component{
             }
         })
     }
-
-
 
     render (){
 
