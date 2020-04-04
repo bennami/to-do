@@ -1,6 +1,6 @@
 .list{
     color: #fff;
-    width: 300px;
+    width: 30vmax;
     margin: 20px auto;
     height: 50px;
     background-color: #7dbf7b;
@@ -21,6 +21,6 @@ position: absolute;
     right: 10px;
     cursor: pointer;
     font-size: medium;
-    height: 4vmax;
+    height: 30px;
     color: #333333;
 }
