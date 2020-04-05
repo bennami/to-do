@@ -1,88 +1,79 @@
 import React ,{useState} from 'react';
 import './App.css';
-import Todo from "./components/Todo";
 
-class App extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state={
-            items:[],
-            currentItem:
-                {
-                    text: '',
-                    key: ''
-                }
+function App (){
 
-        };
+//array of all items
+    const [ items,  setItems ] = useState([]);
 
-        this.handleInput = this.handleInput.bind(this);
-        this.addItem = this.addItem.bind(this);
-        this.deleteItem = this.deleteItem.bind(this)
-    }
-//const [ items,  setItems  = useState([]);
-//const [ currentItem , setCurrentItem] = useState({
-// text:'',
-// key:''
-// })
+//current item that we get from input, key needs to be unique
+    const [ currentItem , setCurrentItem] = useState({
+        text:'',
+        key:''
+    });
 
-    addItem(e){
-        //this prevents page from refreshing
+    //adding item  to items array if not empty
+    const addItem = (e) =>{
+        //this prevents page from refreshing when click  on submit button
         e.preventDefault();
-        const newItem = this.state.currentItem;
-        if(newItem.text !=="") {
-            const items = [...this.state.items, newItem];
-            this.setState({
-                items: items,
-                currentItem: {
-                    text: '',
-                    key: ''
+        const newItem = currentItem;
+        if(newItem.text !== ''){
+            setItems ( [...items,newItem ]);
+
+            //empty input value after submit
+            setCurrentItem({text: '',
+                key:''});
+            console.log(items)
+        }
+    };
+
+
+    const  handleInput  = (e) =>{
+        setCurrentItem(
+            {
+                currentItem:{
+                    text: e.target.value,
+                    key: Date.now()
                 }
-                })
-            }
+            });
 
-        }
+    };
 
-        deleteItem(key){
-        const filteredItems = this.state.items.filter(item =>
-        item.key !== key);
-        this.setState({
-            items:filteredItems
-        })
+    const deleteItem = (key)=>{
+        const filteredItems = items.filter(item =>
+            item.currentItem.key !== key);
+        setItems(filteredItems)
 
-        }
+    };
 
-    handleInput(e){
-        this.setState({
-            currentItem: {
-                text: e.target.value,
-                key: Date.now()
-            }
-        })
-    }
+    const listItems = items.map( item => {
+        return <div className={'list'} key={item.currentItem.key}>
+            <p>{item.currentItem.text}<span><button onClick={()=> deleteItem(item.currentItem.key)}>X</button></span></p>
 
-    render (){
+        </div>
 
-         return (
-            <div className="todo-list">
-                <h1>To Do</h1>
-
-                <form id="form" onSubmit={this.addItem}>
-                    <div className={"form-container"}>
-                        <input
-                            className={"addToDo"}
-                            type="text"
-                            placeholder={"enter  you  task"}
-                            value={this.state.currentItem.text}
-                            onChange={this.handleInput}
-                        />
-                        <button type={"submit"}>+</button>
-                    </div>
-                </form>
-
-            <Todo items = {this.state.items} deleteItem ={this.deleteItem}/>
+    });
+    return (
+        <div className="todo-list">
+            <h1>To Do</h1>
+            <form id="form" onSubmit={addItem}>
+                <div className={"form-container"}>
+                    <input
+                        className={"addToDo"}
+                        type="text"
+                        placeholder={"enter  you  task"}
+                        value={currentItem.text }
+                        onChange={handleInput}
+                    />
+                    <button type={"submit"}>+</button>
+                </div>
+            </form>
+            <div  className="todo-items">
+                {listItems}
             </div>
-            );
-    }
+        </div>
+    );
+
 
 
 }

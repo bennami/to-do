@@ -31,22 +31,12 @@ body {
   padding: 10px 10px ;
   margin-top: 3vmax;
   margin-bottom:  3vmax ;
-  width: 80%;
+  width: 40%;
   border: #333333 1px  solid;
   font-family: Roboto, sans-serif;
   font-weight: 100;
   font-size: 15px;
   color: #333333;
-}
-
-input[type=checkbox] {
-  margin-right: 10px;
-  font-size: 50px;
-
-}
-
-input[type=checkbox]:focus {
-  outline: none;
 }
 
 .l-item{
@@ -75,4 +65,35 @@ button{
   margin-left: 5px;
   background-color: #b1f5af;
   font-size: xx-large;
+}
+
+.list{
+  color: #fff;
+  width: 300px;
+  margin: 20px auto;
+  height: 50px;
+  background-color: #7dbf7b;
+  border-radius: 5px;
+  text-align: left;
+
+}
+
+.list p{
+
+  padding: 10px;
+  position: relative;
+  transition: ease-in-out;
+}
+
+.list p button{
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: medium;
+  height: 30px;
+  color: #333333;
+}
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
 }
